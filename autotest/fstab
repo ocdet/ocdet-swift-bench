@@ -1,0 +1,7 @@
+UUID=e5a9fc9f-120a-4217-9e05-3f2564ccd44a /                       ext4    defaults        1 1
+tmpfs                   /dev/shm                tmpfs   defaults        0 0
+devpts                  /dev/pts                devpts  gid=5,mode=620  0 0
+sysfs                   /sys                    sysfs   defaults        0 0
+proc                    /proc                   proc    defaults        0 0
+/dev/sdb /swift xfs noatime,nodiratime,nobarrier,logbufs=8 0 0
+192.168.20.1:/opt/autotest /opt/autotest nfs defaults 0 0

@@ -1,0 +1,78 @@
+# -*- coding: utf-8 -*-
+require 'spec_helper'
+
+## swift関連のポートがLISTENしていないことを確認
+
+describe port(8080) do
+  it { should_not be_listening }
+end
+
+describe port(6000) do
+  it { should_not be_listening }
+end
+
+describe port(6001) do
+  it { should_not be_listening }
+end
+
+describe port(6002) do
+  it { should_not be_listening }
+end
+
+
+## swift関連のプロセスの停止を確認
+
+describe command('ps -ef |grep -v grep |grep swift-proxy-') do
+  it { should_not return_exit_status 0 }
+end
+
+describe command('ps -ef |grep -v grep |grep swift-account-') do
+  it { should_not return_exit_status 0 }
+end
+
+describe command('ps -ef |grep -v grep |grep swift-container-') do
+  it { should_not return_exit_status 0 }
+end
+
+describe command('ps -ef |grep -v grep |grep swift-object-') do
+  it { should_not return_exit_status 0 }
+end
+
+
+## /etc/swift が空であることをチェック
+
+describe command('test -z "$(ls -A /etc/swift)"') do
+  it { should return_exit_status 0 }
+end
+
+
+## /swift/ocdet が空であることをチェック
+
+describe command('test -z "$(ls -A /swift/ocdet)"') do
+  it { should return_exit_status 0 }
+end
+
+
+## /swift がマウントされていることをチェック
+
+describe file('/swift') do
+  it { should be_mounted.with( :type => 'xfs' ) }
+#  it { should be_mounted.with( :device => '/dev/sdb' ) }
+end
+
+
+## memcached が起動していること
+
+describe command('ps -ef |grep -v grep |grep memcached') do
+  it { should return_exit_status 0 }
+end
+
+
+## memcached のポート 11211がリッスンしていること
+
+describe port(11211) do
+  it { should be_listening }
+end
+
+
+

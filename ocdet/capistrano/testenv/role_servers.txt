@@ -1,0 +1,10 @@
+load_generator,192.168.20.10
+proxy,192.168.20.11
+proxy,192.168.20.15
+container,192.168.30.13
+container,192.168.30.16
+account,192.168.30.14
+account,192.168.30.17
+object,192.168.40.12
+object,192.168.40.18
+
