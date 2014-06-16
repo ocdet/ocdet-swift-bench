@@ -1,35 +1,33 @@
-���͂��߂�
+■はじめに
 
-���̃v���O������OCDET�̊�����
-OpenStack Swift�̑�K�̓x���`�}�[�N�����{�����ۂɎg�p����
-�X�N���v�g�W�ƂȂ�܂��B
+このプログラムはOCDETの活動で
+OpenStack Swiftの大規模ベンチマークを実施した際に使用した
+スクリプト集となります。
 
-�x���`�}�[�N�p�����[�^�Ƃ���(������)
-Object�̃T�C�Y����񐔂���A�e�T�[�o�̑䐔�����܂߂Ďw�肵��
-���s����ƁA���\�z����x���`�}�[�N�̎��s�E���O�̎擾�܂ł�
-�S�Ď����ōs�Ȃ��Ă����X�N���v�g�ƂȂ�܂��B
+ベンチマークパラメータとして(引数で)
+Objectのサイズや並列数から、各サーバの台数等を含めて指定して
+実行すると、環境構築からベンチマークの実行・ログの取得までを
+全て自動で行なってくれるスクリプトとなります。
 
-�������A2013/08/31�Ƀx���`�}�[�N���擾���Ĉȗ��A
-�X�N���v�g�̉��C�▢�����̂܂܂ƂȂ��Ă���ӏ����c���Ă��܂��B
-�ߓx�Ȋ��҂͂��Ȃ��ł��������B
-��A�X�N���v�g��ǂނƂ��͕����𖾂邭����
-���j�^����30cm�͗���Ă݂Ă��������B
+ただし、2013/08/31にベンチマークを取得して以来、
+スクリプトの改修や未実装のままとなっている箇所も残っています。
+過度な期待はしないでください。
 
-���t�@�C���E�f�B���N�g���ꗗ
+■ファイル・ディレクトリ一覧
 
-�Eautotest
-�e�m�[�h����NFS mount���ė��p���܂��B
-(�`�F�b�N�p�̃X�N���v�g��fstab��񂪂���܂��B)
+・autotest
+各ノードからNFS mountして利用します。
+(チェック用のスクリプトやfstab情報があります。)
 
-�Eocdet
-capistrano��X�N���v�g�p�̃f�B���N�g��������܂��B
+・ocdet
+capistranoやスクリプト用のディレクトリがあります。
 
-�Eocdet/bin
-�x���`�}�[�N�X�N���v�g�{��(ocdet_swift_bench.sh)�y��
-�{�̂���Ăяo���Ă���X�N���v�g������܂��B
+・ocdet/bin
+ベンチマークスクリプト本体(ocdet_swift_bench.sh)及び
+本体から呼び出しているスクリプトがあります。
 
-�Eocdet/capistrano
-capistrano�p�̃X�N���v�g�ł��B
+・ocdet/capistrano
+capistrano用のスクリプトです。
 
-�Eocdet/role_servers.txt
-�x���`�}�[�N���s�Ȃ����߂̃T�[�o���X�g���`����t�@�C���ƂȂ�܂��B
+・ocdet/role_servers.txt
+ベンチマークを行なうためのサーバリストを定義するファイルとなります。
